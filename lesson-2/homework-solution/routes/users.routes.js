@@ -7,7 +7,6 @@ const rootDir = require('../util/path');
 const usersPath = join(rootDir, 'users.json');
 
 const handleUsers = async (req, res) => {
-  if (req.method === 'GET') {
     try {
       const data = await readUsersFromFile(usersPath);
       const users = JSON.parse(data) || [];
@@ -69,7 +68,6 @@ const handleUsers = async (req, res) => {
       res.writeHead(500, {'Content-Type': 'text/plain'});
       res.end('Internal Server Error');
     }
-  }
 };
 
 module.exports = handleUsers

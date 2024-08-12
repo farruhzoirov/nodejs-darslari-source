@@ -5,7 +5,6 @@ const rootDir = require('../util/path');
 const usersPath = join(rootDir,'users.json');
 
 const handleForm = (req, res) => {
-  if (req.method === 'POST') {
     const body = [];
 
     req.on('data', chunk => body.push(chunk));
@@ -36,7 +35,6 @@ const handleForm = (req, res) => {
         res.end('Internal Server Error');
       }
     });
-  }
 };
 
 module.exports = handleForm;

@@ -37,10 +37,10 @@ const server = http.createServer((req, res) => {
         `);
     return res.end();
   }
-  if (req.url === '/add-user') {
+  if (req.url === '/add-user' && req.method === 'POST') {
     return handleForm(req, res);
   }
-  if (req.url === '/users') {
+  if (req.url === '/users' && req.method === 'GET') {
     return handleUsers(req, res);
   }
   res.writeHead(404, {'Content-Type': 'text/plain'});
